@@ -1,5 +1,5 @@
-import * as express from 'express';
-import * as cors from 'cors';
+const express = require('express');
+const cors = require('cors');
 
 const app = express();
 app.use(cors());
@@ -15,6 +15,10 @@ function createTodo() {
 }
 
 const todos = [createTodo()];
+
+app.get('/', (req, res) => {
+  res.json({'message': 'ok'});
+})
 
 app.get('/todos', (req, res) => {
   setTimeout(() => {
